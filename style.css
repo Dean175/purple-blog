@@ -1,0 +1,251 @@
+/*
+Theme Name: Purple Blog
+Author: Amir Nabeebacus
+Author URI: http://www.google.com
+Version: 1.0
+*/
+
+
+/*-- additional classes -- */
+.padding-right-left-zero
+{
+	padding-right: 0;
+	padding-left: 0;
+}
+
+/*-- header section -- */
+#header-top {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #783b97;
+    background-color: #fff;
+}
+
+#logo
+{
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+#logo img
+{
+	width: 116px;
+}
+
+#header-top nav ul li
+{
+	float: left;
+	list-style: none;
+}
+
+#header-top nav ul
+{
+    padding: 0;
+    margin: 0;
+}
+
+#header-top nav ul li a
+{
+    padding: 1.7em 1.5em;
+    display: inline-block;
+    font-size: 15px;
+    text-transform: capitalize;
+    color: #783b97;
+    text-decoration: none;
+
+    -webkit-transition: color .3s, background-color .3s;
+    transition: color .3s, background-color .3s;
+}
+
+a.active
+{
+	background-color: #f4c81a;
+	color: #fff !important;
+}
+
+#login a {
+    padding: 1.7em .5em;
+    display: inline-block;
+    font-size: 15px;
+    float: left;
+    text-transform: capitalize;
+    color: #783b97;
+    text-decoration: none;
+
+    -webkit-transition: color .3s, background-color .3s;
+    transition: color .3s, background-color .3s;
+}
+
+#header-top nav ul li a:hover,
+#login a:hover
+{
+	background-color: #783b97;
+	color: #fff;
+}
+
+/*-- slider -- */
+#header-slider .carousel-caption {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    padding: 5% 7%;
+}
+
+#header-slider .carousel-caption::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -35%;
+    background-color: #783c97;
+    padding-bottom: 50%;
+    width: 135%;
+    z-index: -1;
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: rotate(0deg) skewX(20deg);
+    -ms-transform: rotate(0deg) skewX(20deg);
+    transform: rotate(0deg) skewX(20deg);
+}
+
+#header-slider .carousel-caption h3 {
+    text-align: left;
+    font-size: 30px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #f4c81a;
+    padding-bottom: 5px;
+}
+
+#header-slider .carousel-caption p {
+    text-align: left;
+    padding-top: 1.5em;
+    font-size: 16px;
+}
+
+.button-block
+{
+    text-align: left;
+    margin-top: 2em;
+}
+
+.purpleblog-btn
+{
+    padding: 10px 16px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px #403f3f;
+}
+
+.btn-yellow
+{
+    background-color: #f4c81a;
+    color: #fff;
+    transition: background-color .5s, color .5s;
+}
+
+.btn-yellow:hover
+{
+    background-color: #fff;
+    color: #f4c81a;
+}
+
+.carousel-control
+{
+    top: 50%;
+    bottom: initial;
+    width: 5%;
+}
+
+/* ----- Contents ------ */
+
+/* ---- blogs ------ */
+#blogs
+{
+    padding: 4em 0;
+}
+
+/* ---- blog ------ */
+.blog
+{
+    position: relative;
+    background-color: #fff;
+    box-shadow: 1px 1px 20px #bbbbb9;
+}
+
+.blog .blog-img
+{
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog .blog-img img
+{
+    max-width: 100%;
+}
+
+.blog .author-details
+{
+    background-color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    left: 0;
+    padding: 0.2em 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.blog .blog-body-title
+{
+    padding: 0 1em 2em;
+    color: #5a5a5a;
+}
+
+.blog .author-details span[class*="blog-"]
+{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    color: #5a5a5a;
+}
+
+.blog .author-details span[class*="blog-"] span.glyphicon
+{
+    color: #783c97;
+    padding-right: 0.3em;
+}
+
+.blog .read-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.blog .read-more-btn a
+{
+    background-color: #f4c81a;
+    padding: 0.7em;
+    color: #fff;
+    display: block;
+    transition: background-color .5s, color .5s;
+}
+
+.blog .read-more-btn a:hover
+{
+    background-color: #fff;
+    color: #f4c81a;
+}
+
+/* ------ Footer ------------- */
+footer div {
+    text-align: center;
+}
+
+footer div p a {
+    color: #783c97;
+}
+
+footer div p a:hover {
+    color: #783c97;
+}
+
