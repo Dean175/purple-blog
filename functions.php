@@ -34,6 +34,21 @@ function pb_register_slider_post_type() {
 
 	);
 
+	$supports = array(
+		'title',
+		'editor',
+		'author',
+		'thumbnail',
+		'custom-fields'
+	);
+
+	$rewrite = array(
+		'slug'					=> 'slide',
+		'with_front'			=> true,
+		'feeds'					=> true,
+		'pages'					=> true
+	);
+
 	$args = array(
 		'labels' 				=> $labels,
 		'public' 				=> true,
@@ -46,6 +61,15 @@ function pb_register_slider_post_type() {
 		'show_in_admin_bar'		=> true,
 		'menu_position'			=> 100,
 		'menu_icon'				=> 'dashicons-slides',
+		'capability_type'		=> 'post',
+		'map_meta_cap'			=> true,
+		'hierarchical'			=> false,
+		'supports'				=> $supports,
+		'has_archive'			=> false,
+		'rewrite'				=> $rewrite,
+		'query_var'				=> true,
+		'can_export'			=> true,
+		'delete_with_user'		=> false,
 
 	);
 
@@ -53,7 +77,40 @@ function pb_register_slider_post_type() {
 }
 add_action( 'init', 'pb_register_slider_post_type' );
 
+/**
+ * Register Theme Features
+ *
+ */
+function pb_custom_theme_features() {
 
+	/*-- add featured image option --*/
+	add_theme_support( 'post-thumbnails' );
+
+	/*-- add custom logo support --*/
+	$args = array(
+		'height'		=> 115,
+		'width'			=> 200,
+		'flex-height' 	=> true,
+		'flex-width'  	=> true,
+		'header-text' 	=> array( 'site-title', 'site-description' )
+	);
+	add_theme_support( 'custom-logo', $args );
+}
+add_action( 'after_setup_theme', 'pb_custom_theme_features' );
+
+// output the logo
+function theme_prefix_the_custom_logo() {
+	
+	if ( function_exists( 'the_custom_logo' ) ) {
+		if ( has_custom_logo() ) {
+			the_custom_logo();
+		}
+	}
+
+}
+
+
+/*-- add menu option ---*/
 add_theme_support('nav-menus');
 if ( function_exists('register_nav_menus')) {
 	register_nav_menus(

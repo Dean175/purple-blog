@@ -16,8 +16,14 @@
 				<div class="row">
 					<div id="logo" class="col-md-3">
 						<!-- <a href="index.html" title="Home"><img src="images/logo.png"></a> -->
-						<h1><a href="<?php echo home_url();?>"><?php bloginfo('name');?></a></h1>
-						<h5><?php bloginfo('description');?></h5>
+
+						<?php if ( !has_custom_logo() ) { ?>
+							<h1><a href="<?php echo home_url();?>"><?php bloginfo('name');?></a></h1>
+							<h5><?php bloginfo('description');?></h5>
+						<?php } else { ?>
+						<?php theme_prefix_the_custom_logo(); ?>
+						<?php } ?>
+
 					</div>
 
 					<div id="main-menu" class="col-md-7">
