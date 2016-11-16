@@ -1,5 +1,7 @@
 <?php
 
+$dir = __DIR__;
+
 /*-- link stylesheets and scripts -- */
 function purpleBlog_resources() {
 
@@ -11,71 +13,8 @@ function purpleBlog_resources() {
 
 add_action( 'wp_enqueue_scripts', 'purpleBlog_resources' );
 
-
-// creating a custom post type of slider
-function pb_register_slider_post_type() {
-
-	$singular = 'Slider';
-	$plural = 'Sliders';
-
-	$labels = array(
-		'name' 					=> $plural,
-		'singular_name' 		=> $singular,
-		'add_new' 				=> 'Add New',
-		'add_new_item'			=> 'Add New ' . $singular,
-		'edit_item'				=> 'Edit ' . $singular,
-		'new_item'				=> 'New ' . $singular,
-		'view_item'				=> 'View ' . $singular,
-		'search_items'			=> 'Search ' . $plural,
-		'not_found'				=> 'No ' . $plural . ' found',
-		'not_found_in_trash'	=> 'No ' . $plural . ' found in Trash',
-		'parent_item_colon'		=> 'Parent ' . $singular,
-		'all_items'				=> 'All ' . $plural
-
-	);
-
-	$supports = array(
-		'title',
-		'editor',
-		'author',
-		'thumbnail',
-		'custom-fields'
-	);
-
-	$rewrite = array(
-		'slug'					=> 'slide',
-		'with_front'			=> true,
-		'feeds'					=> true,
-		'pages'					=> true
-	);
-
-	$args = array(
-		'labels' 				=> $labels,
-		'public' 				=> true,
-		'description'			=> 'Front page slider',
-		'exclude_from_search'	=> true,
-		'publicly_queryable'	=> true,
-		'show_ui'				=> true,
-		'show_in_nav_menus'		=> true,
-		'show_in_menu'			=> true,
-		'show_in_admin_bar'		=> true,
-		'menu_position'			=> 100,
-		'menu_icon'				=> 'dashicons-slides',
-		'capability_type'		=> 'post',
-		'map_meta_cap'			=> true,
-		'hierarchical'			=> false,
-		'supports'				=> $supports,
-		'has_archive'			=> false,
-		'rewrite'				=> $rewrite,
-		'query_var'				=> true,
-		'can_export'			=> true,
-		'delete_with_user'		=> false,
-
-	);
-
-	register_post_type( 'slider', $args );
-}
-add_action( 'init', 'pb_register_slider_post_type' );
+require_once ( $dir . '/includes/front-page-slider.php' );
+require_once ( $dir . '/includes/slider-meta-box.php' );
 
 /**
  * Register Theme Features
@@ -88,7 +27,7 @@ function pb_custom_theme_features() {
 
 	/*-- add custom logo support --*/
 	$args = array(
-		'height'		=> 115,
+		'height'		=> 70,
 		'width'			=> 200,
 		'flex-height' 	=> true,
 		'flex-width'  	=> true,
